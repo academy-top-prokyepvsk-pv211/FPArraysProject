@@ -54,6 +54,18 @@ void ArrayShiftLeft(int array[], int size, int steps)
     }
 }
 
+void ArrayShiftRight(int array[], int size, int steps)
+{
+    steps %= size;
+    for (int s = 0; s < steps; s++)
+    {
+        int temp = array[size - 1];
+        for (int i = size - 1; i > 0; i--)
+            array[i] = array[i - 1];
+        array[0] = temp;
+    }
+}
+
 
 int main()
 {
@@ -65,7 +77,7 @@ int main()
 
     //ArrayReverse(array, size);
 
-
+    
 
     ArrayPrint(array, size);
     
