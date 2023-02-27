@@ -32,13 +32,15 @@ int ArrayMax(int array[], int size)
     return indexMax;
 }
 
-void ArrayPrint(char array[], int size)
+void ArrayReverse(int array[], int size)
 {
-    for (int i = 0; i < size; i++)
-        cout << array[i] << " ";
-    cout << "\n";
+    for (int i = 0; i < size / 2; i++)
+    {
+        int temp = array[i];
+        array[i] = array[size - i - 1];
+        array[size - i - 1] = temp;
+    }
 }
-
 
 
 int main()
@@ -48,14 +50,29 @@ int main()
 
     ArrayInit(array, size);
     ArrayPrint(array, size);
+
+    //ArrayReverse(array, size);
+    int steps = 5;
+
+    for (int s = 0; s < steps; s++)
+    {
+        int temp = array[0];
+        for (int i = 0; i < size - 1; i++)
+            array[i] = array[i + 1];
+        array[size - 1] = temp;
+    }
+
     
-    int indexMin = ArrayMin(array, size);
+
+    ArrayPrint(array, size);
+    
+ /*   int indexMin = ArrayMin(array, size);
 
     cout << "Min index: " << indexMin << ", min value: " << array[indexMin] << "\n";
 
     int indexMax = ArrayMax(array, size);
 
-    cout << "Max index: " << indexMax << ", max value: " << array[indexMax] << "\n";
+    cout << "Max index: " << indexMax << ", max value: " << array[indexMax] << "\n";*/
 
     //int a = rand() % 10;
     //int b = rand() % 10;
