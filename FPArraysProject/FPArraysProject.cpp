@@ -42,6 +42,18 @@ void ArrayReverse(int array[], int size)
     }
 }
 
+void ArrayShiftLeft(int array[], int size, int steps)
+{
+    steps %= size;
+    for (int s = 0; s < steps; s++)
+    {
+        int temp = array[0];
+        for (int i = 0; i < size - 1; i++)
+            array[i] = array[i + 1];
+        array[size - 1] = temp;
+    }
+}
+
 
 int main()
 {
@@ -52,17 +64,8 @@ int main()
     ArrayPrint(array, size);
 
     //ArrayReverse(array, size);
-    int steps = 5;
 
-    for (int s = 0; s < steps; s++)
-    {
-        int temp = array[0];
-        for (int i = 0; i < size - 1; i++)
-            array[i] = array[i + 1];
-        array[size - 1] = temp;
-    }
 
-    
 
     ArrayPrint(array, size);
     
